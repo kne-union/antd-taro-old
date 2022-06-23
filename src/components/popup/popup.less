@@ -1,0 +1,58 @@
+@class-prefix-popup: ~'adm-popup';
+
+.@{class-prefix-popup} {
+  --z-index: var(--adm-popup-z-index, 1000);
+  z-index: var(--z-index);
+}
+
+.@{class-prefix-popup}-body {
+  width: 100vw;
+  height: 100vh;
+
+  .@{class-prefix-popup}-close-icon {
+    position: absolute;
+    z-index: 100;
+  }
+
+  &-position-bottom {
+    .@{class-prefix-popup}-close-icon {
+      right: 16px;
+      top: 16px;
+    }
+  }
+
+  &-position-top {
+    height: 40vh;
+
+    .@{class-prefix-popup}-close-icon {
+      right: 16px;
+      bottom: 16px;
+    }
+  }
+
+  &-position-left {
+    .@{class-prefix-popup}-close-icon {
+      right: 16px;
+      top: 16px;
+    }
+  }
+
+  &-position-right {
+    .@{class-prefix-popup}-close-icon {
+      left: 16px;
+      top: 16px;
+
+      image {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+.@{class-prefix-popup}-close-icon {
+  cursor: pointer;
+  padding: 8px;
+  font-size: 36px;
+  color: var(--adm-color-weak);
+}
