@@ -1,5 +1,5 @@
 {
-  "name": "@kne/ant-taro",
+  "name": "@kne/antd-taro",
   "version": "0.1.0-alpha.0",
   "description": "antd-mobile在taro上的实现",
   "templateInfo": {
