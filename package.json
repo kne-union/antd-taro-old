@@ -1,6 +1,6 @@
 {
   "name": "@kne/antd-taro",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "antd-mobile在taro上的实现",
   "templateInfo": {
     "name": "default",
@@ -53,7 +53,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.0",
     "@babel/runtime": "^7.7.7",
-    "@kne/microbundle": "^0.15.1",
+    "@kne/microbundle": "^0.15.2",
     "@tarojs/components": "3.4.3",
     "@tarojs/mini-runner": "3.4.3",
     "@tarojs/plugin-framework-react": "3.4.3",
