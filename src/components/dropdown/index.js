@@ -1,9 +1,8 @@
+import './dropdown.less'
 import {useClickAway} from 'ahooks'
 import classNames from 'classnames'
 import React, {
   cloneElement,
-  ReactElement,
-  ComponentProps,
   useEffect,
   useRef,
   useState,
@@ -16,6 +15,8 @@ import withNativeProps from '../../utils/native-props'
 import mergeProps from '../../utils/with-default-props'
 import {usePropsValue} from '../../utils/use-props-value'
 import {View} from '@tarojs/components'
+import uniqueId from 'lodash/uniqueId'
+import Taro from '@tarojs/taro';
 
 const classPrefix = `adm-dropdown`
 
@@ -44,14 +45,17 @@ const Dropdown = forwardRef((p, ref) => {
 
   // 计算 navs 的 top 值
   const [top, setTop] = useState()
-  const containerRef = useRef(null)
+  const containerIdRef = useRef(uniqueId('classPrefix-'))
   useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
-    if (value) {
-      const rect = container.getBoundingClientRect()
-      setTop(rect.bottom)
-    }
+    const query = Taro.createSelectorQuery();
+    query.select(`#${containerIdRef.current}`)
+      .boundingClientRect()
+      .exec(res => {
+        if (!(res && res[0])) {
+          return;
+        }
+        setTop(res[0].bottom);
+      })
   }, [value])
 
   const changeActive = (key) => {
@@ -95,15 +99,15 @@ const Dropdown = forwardRef((p, ref) => {
 
   return withNativeProps(
     props,
-    <div
+    <View
       className={classNames(classPrefix, {
         [`${classPrefix}-open`]: !!value,
       })}
-      ref={containerRef}
+      id={containerIdRef.current}
     >
-      <div className={`${classPrefix}-nav`} ref={navRef}>
+      <View className={`${classPrefix}-nav`} ref={navRef}>
         {navs}
-      </div>
+      </View>
       <Popup
         visible={!!value}
         position='top'
@@ -120,7 +124,7 @@ const Dropdown = forwardRef((p, ref) => {
             : undefined
         }
       >
-        <div ref={contentRef}>
+        <View ref={contentRef}>
           {items.map(item => {
             const isActive = item.key === value
             return (
@@ -134,10 +138,12 @@ const Dropdown = forwardRef((p, ref) => {
               </ItemChildrenWrap>
             )
           })}
-        </div>
+        </View>
       </Popup>
-    </div>
+    </View>
   )
 })
+
+Dropdown.Item = Item;
 
 export default Dropdown

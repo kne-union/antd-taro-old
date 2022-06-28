@@ -33,7 +33,7 @@ const GridItem = p => {
   const props = mergeProps({span: 1}, p)
 
   const itemStyle = {
-    '--item-span': props.span,
+    '--item-span': props.span.toString(),
   }
   return withNativeProps(
     props,

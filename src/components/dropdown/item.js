@@ -42,10 +42,9 @@ export const ItemChildrenWrap = props => {
   const cls = classNames(`${classPrefix}-content`, {
     [`${classPrefix}-content-hidden`]: !active,
   })
-
   return shouldRender ? (
-    <div className={cls} onClick={props.onClick}>
+    <View className={cls} onClick={props.onClick}>
       {props.children}
-    </div>
+    </View>
   ) : null
 }

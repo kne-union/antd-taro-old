@@ -2,12 +2,15 @@
 
 .@{class-prefix-popup} {
   --z-index: var(--adm-popup-z-index, 1000);
+
+  position: fixed;
   z-index: var(--z-index);
 }
 
 .@{class-prefix-popup}-body {
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+  background-color: var(--adm-color-background);
+  z-index: calc(var(--z-index) + 10);
 
   .@{class-prefix-popup}-close-icon {
     position: absolute;
@@ -15,6 +18,10 @@
   }
 
   &-position-bottom {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+
     .@{class-prefix-popup}-close-icon {
       right: 16px;
       top: 16px;
@@ -22,7 +29,9 @@
   }
 
   &-position-top {
-    height: 40vh;
+    width: 100%;
+    top: 0;
+    left: 0;
 
     .@{class-prefix-popup}-close-icon {
       right: 16px;
@@ -31,6 +40,10 @@
   }
 
   &-position-left {
+    height: 100%;
+    top: 0;
+    left: 0;
+
     .@{class-prefix-popup}-close-icon {
       right: 16px;
       top: 16px;
@@ -38,14 +51,13 @@
   }
 
   &-position-right {
+    height: 100%;
+    top: 0;
+    right: 0;
+
     .@{class-prefix-popup}-close-icon {
       left: 16px;
       top: 16px;
-
-      image {
-        width: 16px;
-        height: 16px;
-      }
     }
   }
 }
@@ -53,6 +65,10 @@
 .@{class-prefix-popup}-close-icon {
   cursor: pointer;
   padding: 8px;
-  font-size: 36px;
   color: var(--adm-color-weak);
+
+  image {
+    width: 36px;
+    height: 36px;
+  }
 }

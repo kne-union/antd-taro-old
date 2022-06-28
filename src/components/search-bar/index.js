@@ -21,6 +21,7 @@ const defaultProps = {
   onlyShowClearWhenFocus: false,
   showCancelButton: false,
   defaultValue: '',
+  autoFocus: false,
   clearOnCancel: true,
   icon: <Image src={searchOutline}/>,
 }
@@ -32,6 +33,12 @@ const SearchBar = forwardRef((p, ref) => {
   const inputRef = useRef(null)
 
   useImperativeHandle(ref, () => ({
+    get value() {
+      return value
+    },
+    set value(value) {
+      setValue(value);
+    },
     clear: () => inputRef.current && inputRef.current.clear(),
     focus: () => inputRef.current && inputRef.current.focus(),
     blur: () => inputRef.current && inputRef.current.blur()
@@ -90,6 +97,7 @@ const SearchBar = forwardRef((p, ref) => {
           placeholder={props.placeholder}
           clearable={props.clearable}
           onlyShowClearWhenFocus={props.onlyShowClearWhenFocus}
+          autoFocus={props.autoFocus}
           onFocus={e => {
             setHasFocus(true)
             props.onFocus && props.onFocus(e)
@@ -100,8 +108,8 @@ const SearchBar = forwardRef((p, ref) => {
           }}
           onClear={props.onClear}
           type='search'
-          enterKeyHint='search'
-          onEnterPress={() => {
+          confirmType='search'
+          onConfirm={() => {
             inputRef.current && inputRef.current.blur()
             props.onSearch && props.onSearch(value)
           }}

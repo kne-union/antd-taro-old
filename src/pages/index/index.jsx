@@ -1,4 +1,3 @@
-import '../../../lib/antd-taro.css'
 import {useState} from 'react'
 import {View, Text} from '@tarojs/components'
 import {
@@ -15,10 +14,13 @@ import {
   Selector,
   Tabs,
   Badge,
+  SafeArea,
+  TabBar,
   SideBar,
   Tag,
-  Avatar
-} from '../../../lib/antd-taro';
+  Avatar,
+  Dropdown
+} from '../../antd-taro';
 import './index.scss';
 
 const tabs = [
@@ -45,10 +47,46 @@ const Index = () => {
   const [inputText, setInputText] = useState('');
   return (
     <View className='index'>
+      <SafeArea position='top'/>
       <Text>Hello world!</Text>
+      <TabBar>
+        <TabBar.Item key="index" title="首页"/>
+        <TabBar.Item key="position" title="职位"/>
+        <TabBar.Item key="resume" title="简历"/>
+      </TabBar>
       <Divider/>
       <Space direction="vertical">
-        <Avatar/>
+        <Dropdown>
+          <Dropdown.Item key='sorter' title='排序'>
+            <View style={{padding: 12}}>
+              <View>排序内容</View>
+              <View>排序内容</View>
+              <View>排序内容</View>
+            </View>
+          </Dropdown.Item>
+          <Dropdown.Item key='bizop' title='商机筛选'>
+            <View style={{padding: 12}}>
+              <View>商机筛选内容</View>
+              <View>商机筛选内容</View>
+              <View>商机筛选内容</View>
+            </View>
+          </Dropdown.Item>
+        </Dropdown>
+        <Button className="hahaha" color='primary' fill='solid' onClick={() => {
+          setVisible(true)
+        }}>
+          底部弹出
+        </Button>
+        <Popup
+          position="left"
+          visible={visible}
+          onMaskClick={() => {
+            setVisible(false)
+          }}
+        >
+          哈哈哈哈哈哈哈哈
+        </Popup>
+        {/*<Avatar/>
         <Space>
           <Tag color='primary' fill='outline'>
             Primary
@@ -261,7 +299,7 @@ const Index = () => {
           <List.Item disabled>
             总资产
           </List.Item>
-        </List>
+        </List>*/}
       </Space>
     </View>
   )

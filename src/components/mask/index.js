@@ -45,7 +45,7 @@ const Mask = p => {
     config: {
       precision: 0.01,
       mass: 1,
-      tension: 250,
+      tension: 600,
       friction: 30,
       clamp: true,
     },

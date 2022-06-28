@@ -22,6 +22,12 @@ export default forwardRef((p, ref) => {
   const nativeInputRef = useRef(null)
 
   useImperativeHandle(ref, () => ({
+    get value() {
+      return value
+    },
+    set value(value) {
+      setValue(value);
+    },
     clear: () => {
       setValue('')
     },
@@ -90,6 +96,8 @@ export default forwardRef((p, ref) => {
         safePasswordCustomHash={props.safePasswordCustomHash}
         randomNumber={props.randomNumber}
         onKeyboardHeightChange={props.onKeyboardHeightChange}
+        onConfirm={props.onConfirm}
+        confirmType={props.confirmType}
         nativeProps={props.nativeProps}
         type={props.type}
         name={props.name}

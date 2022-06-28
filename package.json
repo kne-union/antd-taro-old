@@ -1,6 +1,6 @@
 {
   "name": "@kne/antd-taro",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.14",
   "description": "antd-mobile在taro上的实现",
   "templateInfo": {
     "name": "default",
@@ -41,10 +41,11 @@
   "author": "",
   "peerDependencies": {
     "@tarojs/components": "*",
+    "@tarojs/taro": "*",
+    "@tarojsx/library": "*",
     "react": "*"
   },
   "dependencies": {
-    "@tarojsx/library": "^0.31.0",
     "ahooks": "^3.5.0",
     "classnames": "^2.3.1",
     "lodash": "^4.17.21",

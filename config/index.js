@@ -19,7 +19,7 @@ const config = {
   framework: 'react',
   mini: {
     enableMutationObserver: true,
-    webpackChain(chain, webpack) {
+    webpackChain(chain) {
       chain
         .plugin('taroProviderPlugin')
         .use(TaroProvidePlugin)
