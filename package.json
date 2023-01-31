@@ -13,7 +13,7 @@
     "lib"
   ],
   "scripts": {
-    "lib:build": "microbundle --no-compress --format modern,cjs --jsx React.createElement --jsxFragment React.Fragment --css-modules false",
+    "build:lib": "microbundle --no-compress --format modern,cjs --jsx React.createElement --jsxFragment React.Fragment --css-modules false",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
