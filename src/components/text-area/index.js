@@ -34,7 +34,7 @@ const TextArea = forwardRef((p, ref) => {
   }))
 
   let count
-  const valueLength = [...value].length
+  const valueLength = value ? value.length : 0
   if (typeof showCount === 'function') {
     count = showCount(valueLength, maxLength)
   } else if (showCount) {
@@ -45,6 +45,7 @@ const TextArea = forwardRef((p, ref) => {
 
   return withNativeProps(props, <View className={classPrefix}>
     <Textarea
+      controlled
       ref={nativeTextAreaRef}
       className={`${classPrefix}-element`}
       value={value}
