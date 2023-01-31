@@ -10,6 +10,7 @@ import {
   Popup,
   Result,
   Input,
+  TextArea,
   SearchBar,
   Selector,
   Tabs,
@@ -48,7 +49,9 @@ const Index = () => {
   return (
     <View className='index'>
       <SafeArea position='top'/>
+      <Input />
       <Text>Hello world!</Text>
+      <TextArea />
       <TabBar>
         <TabBar.Item key="index" title="首页"/>
         <TabBar.Item key="position" title="职位"/>
