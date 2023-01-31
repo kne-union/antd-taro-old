@@ -23,4 +23,5 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.KNE_PACKAGE_PUBLISH}}
-      - run: wget https://npmmirror.com/sync/@kne/antd-taro
+      - run: npm i -g cnpm
+      - run: cnpm sync @kne/antd-taro
