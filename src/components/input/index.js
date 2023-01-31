@@ -5,7 +5,6 @@ import closeCircleFill from './closeCircleFill.svg'
 import withNativeProps from '../../utils/native-props'
 import mergeProps from '../../utils/with-default-props'
 import classNames from 'classnames'
-import bound from '../../utils/bound'
 import {View, Input, Image} from '@tarojs/components'
 
 const classPrefix = `adm-input`

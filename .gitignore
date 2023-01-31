@@ -6,3 +6,5 @@ node_modules/
 .DS_Store
 .idea/
 lib/
+project.private.config.json
+package-lock.json
