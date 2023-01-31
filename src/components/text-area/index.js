@@ -60,7 +60,7 @@ const TextArea = forwardRef((p, ref) => {
       placeholderClass={props.placeholderClass}
       placeholderTextColor={props.placeholderTextColor}
       disabled={props.disabled}
-      maxLength={props.maxLength}
+      maxlength={props.maxLength}
       focus={props.focus}
       cursor={props.cursor}
       autoHeight={props.autoSize}
