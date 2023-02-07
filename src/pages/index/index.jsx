@@ -10,10 +10,15 @@ import {
   Popup,
   Result,
   Input,
+  Switch,
+  Slider,
   TextArea,
   SearchBar,
   Selector,
   Tabs,
+  Picker,
+  DatePicker,
+  DatePickerRange,
   Badge,
   SafeArea,
   TabBar,
@@ -24,72 +29,63 @@ import {
 } from '../../antd-taro';
 import './index.scss';
 
-const tabs = [
-  {
-    key: 'key1',
-    title: '选项一',
-    badge: Badge.dot,
-  },
-  {
-    key: 'key2',
-    title: '选项二',
-    badge: '5',
-  },
-  {
-    key: 'key3',
-    title: '选项三',
-    badge: '99+',
-    disabled: true,
-  },
-];
+const tabs = [{
+  key: 'key1', title: '选项一', badge: Badge.dot,
+}, {
+  key: 'key2', title: '选项二', badge: '5',
+}, {
+  key: 'key3', title: '选项三', badge: '99+', disabled: true,
+},];
 
 const Index = () => {
   const [visible, setVisible] = useState(false);
   const [inputText, setInputText] = useState('');
-  return (
-    <View className='index'>
-      <SafeArea position='top'/>
-      <Input />
-      <Text>Hello world!</Text>
-      <TextArea />
-      <TabBar>
-        <TabBar.Item key="index" title="首页"/>
-        <TabBar.Item key="position" title="职位"/>
-        <TabBar.Item key="resume" title="简历"/>
-      </TabBar>
-      <Divider/>
-      <Space direction="vertical">
-        <Dropdown>
-          <Dropdown.Item key='sorter' title='排序'>
-            <View style={{padding: 12}}>
-              <View>排序内容</View>
-              <View>排序内容</View>
-              <View>排序内容</View>
-            </View>
-          </Dropdown.Item>
-          <Dropdown.Item key='bizop' title='商机筛选'>
-            <View style={{padding: 12}}>
-              <View>商机筛选内容</View>
-              <View>商机筛选内容</View>
-              <View>商机筛选内容</View>
-            </View>
-          </Dropdown.Item>
-        </Dropdown>
-        <Button className="hahaha" color='primary' fill='solid' onClick={() => {
-          setVisible(true)
-        }}>
-          底部弹出
-        </Button>
-        <Popup
-          position="left"
-          visible={visible}
-          onMaskClick={() => {
-            setVisible(false)
-          }}
-        >
-          哈哈哈哈哈哈哈哈
-        </Popup>
-        {/*<Avatar/>
+  return (<View className='index'>
+    <SafeArea position='top'/>
+    <Switch checkedText="开" uncheckedText="关"/>
+    <Text>Hello world!</Text>
+    <TextArea/>
+    <TabBar>
+      <TabBar.Item key="index" title="首页"/>
+      <TabBar.Item key="position" title="职位"/>
+      <TabBar.Item key="resume" title="简历"/>
+    </TabBar>
+    <Divider/>
+    <Space direction="vertical">
+      <Dropdown>
+        <Dropdown.Item key='sorter' title='排序'>
+          <View style={{padding: 12}}>
+            <View>排序内容</View>
+            <View>排序内容</View>
+            <View>排序内容</View>
+          </View>
+        </Dropdown.Item>
+        <Dropdown.Item key='bizop' title='商机筛选'>
+          <View style={{padding: 12}}>
+            <View>商机筛选内容</View>
+            <View>商机筛选内容</View>
+            <View>商机筛选内容</View>
+          </View>
+        </Dropdown.Item>
+      </Dropdown>
+      <Button className="hahaha" color='primary' fill='solid' onClick={() => {
+        setVisible(true)
+      }}>
+        底部弹出
+      </Button>
+      <DatePickerRange
+        soFar
+        visible={visible}
+        onChange={(value) => {
+          console.log(value);
+        }}
+        onClose={() => {
+          setVisible(false);
+        }}
+      >
+        哈哈哈哈哈哈哈哈
+      </DatePickerRange>
+      {/*<Avatar/>
         <Space>
           <Tag color='primary' fill='outline'>
             Primary
@@ -303,9 +299,8 @@ const Index = () => {
             总资产
           </List.Item>
         </List>*/}
-      </Space>
-    </View>
-  )
+    </Space>
+  </View>)
 };
 
 export default Index;
