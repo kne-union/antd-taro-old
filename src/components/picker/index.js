@@ -53,7 +53,7 @@ const Picker = (p) => {
 
   const timer = useRef();
 
-  return withNativeProps(props, <Popup className={`${classPrefix}-popup`} position="bottom" visible={active}
+  return withNativeProps(props, <Popup className={`${classPrefix}-popup`} isRootPortal position="bottom" visible={active}
                                        onClose={() => {
                                          setActive(false);
                                          onClose?.();

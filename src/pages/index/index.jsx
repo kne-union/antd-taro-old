@@ -79,7 +79,14 @@ const Index = () => {
       }}>
         底部弹出
       </Button>
-      <DatePickerRange
+      <Picker
+        visible={visible}
+        columns={[[{label: "选项一", value: "1"}, {label: "选项二", value: "2"}, {label: "选项三", value: "3"}],[{label: "选项一", value: "1"}, {label: "选项二", value: "2"}, {label: "选项三", value: "3"}]]}
+        onClose={() => {
+          setVisible(false);
+        }}
+      />
+      {/*<DatePickerRange
         soFar
         visible={visible}
         onChange={(value) => {
@@ -90,7 +97,7 @@ const Index = () => {
         }}
       >
         哈哈哈哈哈哈哈哈
-      </DatePickerRange>
+      </DatePickerRange>*/}
       {/*<Avatar/>
         <Space>
           <Tag color='primary' fill='outline'>

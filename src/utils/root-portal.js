@@ -1,7 +1,11 @@
 import {View, RootPortal} from '@tarojs/components'
 
-const RootPortalView = ({children}) => {
-  return <RootPortal><View className="adm-root-portal">{children}</View></RootPortal>
+const RootPortalView = ({className, children}) => {
+  return <RootPortal>
+    <View className="adm-root-portal">
+      <View className={className}>{children}</View>
+    </View>
+  </RootPortal>
 };
 
 export default RootPortalView;

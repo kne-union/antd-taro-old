@@ -7,6 +7,7 @@ import Mask from '../mask'
 import withStopPropagation from '../../utils/with-stop-propagation'
 import closeOutline from './closeOutline.svg'
 import useInnerVisible from '../../utils/use-inner-visible'
+import RootPortal from '../../utils/root-portal';
 import {View, Image} from '@tarojs/components'
 import useControlValue from '@kne/use-control-value'
 import SafeArea from '../safe-area'
@@ -35,7 +36,7 @@ const Popup = p => {
 
   const maskVisible = useInnerVisible(active && props.visible)
 
-  const node = withStopPropagation(props.stopPropagation, withNativeProps(props, <View
+  const innerChildren = <View
     className={classnames(classPrefix, {
       'is-active': active
     })}
@@ -70,11 +71,12 @@ const Popup = p => {
         <Image src={closeOutline}/>
       </View>)}
       {props.hasSafeArea && <SafeArea position="top"/>}
-
       {props.children}
       {props.hasSafeArea && <SafeArea position="bottom"/>}
     </View>
-  </View>))
+  </View>;
+  const node = withStopPropagation(props.stopPropagation, withNativeProps(props, props.isRootPortal ?
+    <RootPortal>{innerChildren}</RootPortal> : innerChildren))
 
   return (node)
 }
