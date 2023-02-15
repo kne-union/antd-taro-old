@@ -1,5 +1,5 @@
 import './picker.less';
-import {useState, useEffect, useRef} from 'react';
+import React,{useState, useEffect, useRef} from 'react';
 import mergeProps from "../../utils/with-default-props";
 import Popup from '../popup';
 import withNativeProps from '../../utils/native-props';
