@@ -1,6 +1,6 @@
 {
   "name": "@kne/antd-taro",
-  "version": "0.1.1-alpha.3",
+  "version": "0.1.1-alpha.4",
   "description": "antd-mobile在taro上的实现",
   "templateInfo": {
     "name": "default",
