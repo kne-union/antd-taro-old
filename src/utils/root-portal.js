@@ -1,3 +1,4 @@
+import React from 'react'
 import {View, RootPortal} from '@tarojs/components'
 
 const RootPortalView = ({className, children}) => {
