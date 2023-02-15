@@ -1,0 +1,40 @@
+.adm-check-list {
+  &-item {
+    &-extra {
+      font-size: var(--adm-font-size-10);
+      line-height: 1;
+      color: var(--adm-color-primary);
+    }
+
+    &-readonly {
+      cursor: unset;
+    }
+
+    &-checkout-icon {
+      width: var(--adm-font-size-10);
+      height: var(--adm-font-size-10);
+      user-select: none;
+      overflow: hidden;
+
+      .image {
+        width: var(--adm-font-size-10);
+        height: var(--adm-font-size-10);
+        display: block;
+        transform: translateX(var(--adm-font-size-10));
+        filter: drop-shadow(var(--adm-color-primary) calc(0px - var(--adm-font-size-10)) 0px 0px);
+      }
+
+    }
+  }
+
+  &-popup-inner {
+    width: 100vw;
+    height: calc(100% - 90px);
+
+    .adm-check-list {
+      padding-right: 20px;
+    }
+  }
+}
+
+

@@ -20,6 +20,7 @@ const defaultProps = {
   showCloseButton: false,
   stopPropagation: ['click'],
   visible: false,
+  hasSafeArea: true,
   position: 'bottom',
 }
 
@@ -68,9 +69,10 @@ const Popup = p => {
       >
         <Image src={closeOutline}/>
       </View>)}
-      <SafeArea position="top"/>
+      {props.hasSafeArea && <SafeArea position="top"/>}
+
       {props.children}
-      <SafeArea position="bottom"/>
+      {props.hasSafeArea && <SafeArea position="bottom"/>}
     </View>
   </View>))
 

@@ -25,8 +25,11 @@ import {
   SideBar,
   Tag,
   Avatar,
-  Dropdown
+  Dropdown,
+  CheckList,
+  NavBar
 } from '../../antd-taro';
+import range from 'lodash/range';
 import './index.scss';
 
 const tabs = [{
@@ -51,6 +54,9 @@ const Index = () => {
       <TabBar.Item key="resume" title="简历"/>
     </TabBar>
     <Divider/>
+    <NavBar onBack={() => {
+      console.log('onClick');
+    }}>标题</NavBar>
     <Space direction="vertical">
       <Dropdown>
         <Dropdown.Item key='sorter' title='排序'>
