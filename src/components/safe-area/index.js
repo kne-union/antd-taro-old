@@ -7,7 +7,6 @@ import {View} from '@tarojs/components'
 const classPrefix = 'adm-safe-area'
 
 const SafeArea = props => {
-  console.log(props);
   return withNativeProps(
     props,
     <View
