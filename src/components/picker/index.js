@@ -33,7 +33,10 @@ const Picker = (p) => {
 
   const currentValue = useRef([]);
   currentValue.current = columns.map((columnList, index) => {
-    const val = value[index];
+    const val = get(value, index);
+    if (val === void (0)) {
+      return 0;
+    }
     const currentIndex = columnList.findIndex(({value}) => value === val);
     return currentIndex > -1 ? currentIndex : 0;
   });
