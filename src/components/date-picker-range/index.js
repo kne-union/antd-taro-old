@@ -5,7 +5,6 @@ import withNativeProps from "../../utils/native-props";
 import useDateRange, {valueToDate, dateToValue, renderLabel} from '../../utils/use-date-range';
 import precisionToLength from '../../utils/precision-to-length';
 import useControlValue from "@kne/use-control-value";
-import dayjs from 'dayjs';
 
 const classPrefix = `adm-date-picker`
 

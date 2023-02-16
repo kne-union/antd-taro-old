@@ -1,9 +1,10 @@
-import classnames from 'classnames'
 import React from 'react'
 import { Slider as TaroSlider } from '@tarojs/components'
 
-const Slider = (props)=>{
-  return <TaroSlider {...props} backgroundColor="var(--adm-color-box)" activeColor="var(--adm-color-primary)"/>
+const Slider = ({onChange,...props})=>{
+  return <TaroSlider {...props} backgroundColor="var(--adm-color-box)" activeColor="var(--adm-color-primary)" onChange={(e)=>{
+    onChange(e.detail.value);
+  }}/>
 }
 
 export default Slider;
