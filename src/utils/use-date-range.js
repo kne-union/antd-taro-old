@@ -3,6 +3,52 @@ import {useMemo} from 'react'
 import range from 'lodash/range'
 import precisionToLength from './precision-to-length'
 
+export const renderLabel = (type, data) => {
+  if (type === 'year') {
+    return `${data}年`
+  }
+  if (type === 'month') {
+    return `${data}月`
+  }
+  if (type === 'day') {
+    return `${data}日`
+  }
+  if (type === 'hour') {
+    return `${data.toString().padStart(2, '0')}时`
+  }
+  if (type === 'minute') {
+    return `${data.toString().padStart(2, '0')}分`
+  }
+  return data;
+};
+
+export const valueToDate = (value) => {
+  if (value[0] === -1) {
+    return 'sofar';
+  }
+  let output = dayjs(new Date(0));
+  ['year', 'month', 'date', 'hour', 'minute'].forEach((key, index) => {
+    if (value[index] !== void (0)) {
+      if (key === 'date' && value[index] > getMonthDayCount(output.year(), output.month())) {
+        return getMonthDayCount(output.year(), output.month());
+      }
+      output = output[key](value[index]);
+    } else {
+      return;
+    }
+  });
+  return output.toDate();
+};
+
+export const dateToValue = (value, precision) => {
+  if (value === 'sofar') {
+    return [-1];
+  }
+  const date = dayjs(value);
+  const length = precisionToLength(precision);
+  return [date.year(), date.month(), date.date(), date.hour(), date.minute()].slice(0, length);
+};
+
 export const getMonthDayCount = (year, month) => {
   if ([0, 2, 4, 6, 7, 9, 11].indexOf(month) >= 0) {
     return 31;
