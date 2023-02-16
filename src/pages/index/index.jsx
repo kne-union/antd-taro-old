@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import {View, Text} from '@tarojs/components'
+import Form from '@kne/react-form'
 import {
   Button,
   Space,
@@ -79,13 +80,22 @@ const Index = () => {
       }}>
         底部弹出
       </Button>
-      <Picker
-        visible={visible}
-        columns={[[{label: "选项一", value: "1"}, {label: "选项二", value: "2"}, {label: "选项三", value: "3"}],[{label: "选项一", value: "1"}, {label: "选项二", value: "2"}, {label: "选项三", value: "3"}]]}
-        onClose={() => {
-          setVisible(false);
-        }}
-      />
+      <Form>
+        <List mode="card">
+          <List.Item title="点击">
+            <Picker
+              visible={visible}
+              columns={[[{label: "选项一", value: "1"}, {label: "选项二", value: "2"}, {
+                label: "选项三", value: "3"
+              }], [{label: "选项一", value: "1"}, {label: "选项二", value: "2"}, {label: "选项三", value: "3"}]]}
+              onClose={() => {
+                console.log('xxxxxxxxxxxxxxxxxxxx');
+                setVisible(false);
+              }}
+            />
+          </List.Item>
+        </List>
+      </Form>
       {/*<DatePickerRange
         soFar
         visible={visible}
