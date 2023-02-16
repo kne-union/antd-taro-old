@@ -1,4 +1,5 @@
 import './style.less'
+import React from 'react'
 import {View} from '@tarojs/components'
 import classnames from 'classnames'
 
