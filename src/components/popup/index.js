@@ -17,6 +17,7 @@ const classPrefix = `adm-popup`
 const defaultProps = {
   closeOnMaskClick: true,
   disableBodyScroll: true,
+  isRootPortal: false,
   mask: true,
   showCloseButton: false,
   stopPropagation: ['click'],
