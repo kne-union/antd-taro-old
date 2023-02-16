@@ -1,5 +1,5 @@
 import './picker.less';
-import React,{useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import mergeProps from "../../utils/with-default-props";
 import Popup from '../popup';
 import withNativeProps from '../../utils/native-props';
@@ -13,7 +13,7 @@ import useRefCallback from '@kne/use-ref-callback';
 const classPrefix = `adm-picker`
 
 const defaultProps = {
-  cancelText: '取消', confirmText: '确定', defaultValue: []
+  cancelText: '取消', confirmText: '确定', defaultValue: [], isRootPortal: false
 }
 
 const Picker = (p) => {
@@ -53,7 +53,8 @@ const Picker = (p) => {
 
   const timer = useRef();
 
-  return withNativeProps(props, <Popup className={`${classPrefix}-popup`} isRootPortal position="bottom" visible={active}
+  return withNativeProps(props, <Popup className={`${classPrefix}-popup`} isRootPortal={props.isRootPortal}
+                                       position="bottom" visible={active}
                                        onClose={() => {
                                          setActive(false);
                                          onClose?.();
