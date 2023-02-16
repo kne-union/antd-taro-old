@@ -10,8 +10,7 @@ const withNativeProps = (props, element) => {
   }
   if (props.style) {
     p.style = {
-      ...p.style,
-      ...props.style,
+      ...p.style, ...props.style,
     };
   }
   if (props.tabIndex !== undefined) {
