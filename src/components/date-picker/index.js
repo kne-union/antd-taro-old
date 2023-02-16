@@ -1,4 +1,4 @@
-import {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import mergeProps from "../../utils/with-default-props";
 import Picker from '../picker';
 import withNativeProps from "../../utils/native-props";
