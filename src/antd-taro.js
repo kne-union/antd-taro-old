@@ -20,7 +20,7 @@ export {default as Picker} from './components/picker'
 export {default as CheckList} from './components/check-list'
 export {default as DatePicker} from './components/date-picker'
 export {default as DatePickerRange} from './components/date-picker-range'
-export {default as Tabs} from './components/tabs'
+/*export {default as Tabs} from './components/tabs'*/
 export {default as Badge} from './components/badge'
 export {default as SideBar} from './components/side-bar'
 export {default as Tag} from './components/tag'

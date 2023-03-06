@@ -15,7 +15,7 @@ const defaultProps = {
 const DatePicker = (p) => {
   const {precision, max, min, renderLabel, soFar, ...props} = mergeProps(defaultProps, p);
   const [valueProp, onChange] = useControlValue(props);
-  const value = valueProp || [new Date(), new Date()];
+  const value = valueProp || defaultProps.defaultValue;
   const [innerValue, setInnerValueChange] = useState([dateToValue(value[0], precision), dateToValue(value[1]), precision]);
 
   useEffect(() => {

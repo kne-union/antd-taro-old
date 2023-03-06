@@ -3,7 +3,7 @@ import {Switch as TaroSwitch} from '@tarojs/components'
 
 const Switch = ({onChange, ...props}) => {
   return <TaroSwitch {...props} color="var(--adm-color-primary)" onChange={(e) => {
-    onChange(e.detail.value);
+    onChange && onChange(e.detail.value);
   }}/>
 };
 

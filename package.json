@@ -1,6 +1,6 @@
 {
   "name": "@kne/antd-taro",
-  "version": "0.1.1-alpha.12",
+  "version": "0.1.1-alpha.13",
   "description": "antd-mobile在taro上的实现",
   "templateInfo": {
     "name": "default",
@@ -42,7 +42,6 @@
   "peerDependencies": {
     "@tarojs/components": "*",
     "@tarojs/taro": "*",
-    "@tarojsx/library": "*",
     "react": "*"
   },
   "dependencies": {
@@ -67,7 +66,6 @@
     "@tarojs/runtime": "^3.6.0",
     "@tarojs/taro": "^3.6.0",
     "@tarojs/webpack-runner": "^3.6.0",
-    "@tarojsx/polyfill": "^0.16.0",
     "@types/react": "^17.0.2",
     "@types/webpack-env": "^1.13.6",
     "babel-preset-taro": "^3.6.0",
