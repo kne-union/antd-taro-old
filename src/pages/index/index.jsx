@@ -44,6 +44,7 @@ const tabs = [{
 const Index = () => {
   const [visible, setVisible] = useState(false);
   const [inputText, setInputText] = useState('');
+  const [value, setValue] = useState([]);
   return (<View className='index'>
     <SafeArea position='top'/>
     <Switch checkedText="开" uncheckedText="关"/>
@@ -80,7 +81,7 @@ const Index = () => {
       }}>
         底部弹出
       </Button>
-      <Form>
+      {/*<Form>
         <List mode="card">
           <List.Item title="点击">
             <Picker
@@ -95,19 +96,19 @@ const Index = () => {
             />
           </List.Item>
         </List>
-      </Form>
-      {/*<DatePickerRange
+      </Form>*/}
+      <DatePickerRange
+        value={value}
         soFar
         visible={visible}
         onChange={(value) => {
           console.log(value);
+          setValue(value);
         }}
         onClose={() => {
           setVisible(false);
         }}
-      >
-        哈哈哈哈哈哈哈哈
-      </DatePickerRange>*/}
+      />
       {/*<Avatar/>
         <Space>
           <Tag color='primary' fill='outline'>

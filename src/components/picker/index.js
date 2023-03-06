@@ -18,7 +18,7 @@ const defaultProps = {
 
 const Picker = (p) => {
   const {
-    title, cancelText, loading, confirmText, onCancel, onClose, onColumnChange, columns, ...props
+    title, cancelText, loading, confirmText, onCancel, onClose: handlerClose, onColumnChange, columns, ...props
   } = mergeProps(defaultProps, p)
   const [value, onChange] = useControlValue(props);
   const [active, setActive] = useControlValue(props, {
@@ -40,6 +40,10 @@ const Picker = (p) => {
     const currentIndex = columnList.findIndex(({value}) => value === val);
     return currentIndex > -1 ? currentIndex : 0;
   });
+
+  const onClose = () => {
+    handlerClose?.();
+  };
 
   useEffect(() => {
     if (active) {

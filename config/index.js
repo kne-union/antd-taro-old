@@ -1,4 +1,3 @@
-const {TaroProvidePlugin} = require('@tarojsx/polyfill/dist/plugins')
 const config = {
   projectName: 'antd-taro',
   date: '2022-6-20',
@@ -19,11 +18,6 @@ const config = {
   framework: 'react',
   mini: {
     enableMutationObserver: true,
-    webpackChain(chain) {
-      chain
-        .plugin('taroProviderPlugin')
-        .use(TaroProvidePlugin)
-    },
     postcss: {
       pxtransform: {
         enable: true,
