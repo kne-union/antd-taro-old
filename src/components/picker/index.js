@@ -18,7 +18,7 @@ const defaultProps = {
 
 const Picker = (p) => {
   const {
-    title, cancelText, loading, confirmText, onCancel, onClose: handlerClose, onColumnChange, columns, ...props
+    title,label, cancelText, loading, confirmText, onCancel, onClose, onColumnChange, columns, ...props
   } = mergeProps(defaultProps, p)
   const [value, onChange] = useControlValue(props);
   const [active, setActive] = useControlValue(props, {
@@ -40,10 +40,6 @@ const Picker = (p) => {
     const currentIndex = columnList.findIndex(({value}) => value === val);
     return currentIndex > -1 ? currentIndex : 0;
   });
-
-  const onClose = () => {
-    handlerClose?.();
-  };
 
   useEffect(() => {
     if (active) {
@@ -75,7 +71,7 @@ const Picker = (p) => {
         >
           {cancelText}
         </View>
-        <View className={`${classPrefix}-header-title`}>{title}</View>
+        <View className={`${classPrefix}-header-title`}>{label}</View>
         <View
           className={classnames(`${classPrefix}-header-button`, loading && `${classPrefix}-header-button-disabled`)}
           onClick={() => {
@@ -89,7 +85,7 @@ const Picker = (p) => {
         </View>
       </View>
       <View className={`${classPrefix}-body`}>
-        <PickerView className={`${classPrefix}-column`} immediateChange indicatorStyle='height: 34px;'
+        <PickerView className={`${classPrefix}-column`} immediateChange indicatorStyle='height: 44px;'
                     value={innerValue}
                     onChange={(e) => {
                       const value = e.detail.value;
@@ -110,7 +106,7 @@ const Picker = (p) => {
                     }}>
           {columns.map((column, colIndex) => {
             return <PickerViewColumn className={`${classPrefix}-column-item`}>{column.map(({label}, index) => <View
-              style={{lineHeight: '34px'}} className={classnames(`${classPrefix}-column-view`, {
+              style={{lineHeight: '44px'}} className={classnames(`${classPrefix}-column-view`, {
               'is-active': get(innerValue, colIndex, 0) === index
             })}>{label}</View>)}</PickerViewColumn>
           })}

@@ -1,7 +1,7 @@
 import './tabs.less'
 import React, {useRef} from 'react'
 import classNames from 'classnames'
-import {useSpring, animated} from '@tarojsx/library/dist/react-spring'
+import {useSpring, animated} from 'react-spring';
 import withNativeProps from '../../utils/native-props'
 import {usePropsValue} from '../../utils/use-props-value'
 import bound from '../../utils/bound'
@@ -14,7 +14,6 @@ import traverseReactNode from '../../utils/traverse-react-node'
 import {View} from '@tarojs/components'
 
 const classPrefix = `adm-tabs`
-
 
 const Tab = () => {
   return null
@@ -183,70 +182,34 @@ const Tabs = p => {
     props,
     <View className={classPrefix}>
       <View className={`${classPrefix}-header`}>
-        <animated.View
-          className={classNames(
-            `${classPrefix}-header-mask`,
-            `${classPrefix}-header-mask-left`
-          )}
-          style={{
-            opacity: leftMaskOpacity,
-          }}
-        />
-        <animated.View
-          className={classNames(
-            `${classPrefix}-header-mask`,
-            `${classPrefix}-header-mask-right`
-          )}
-          style={{
-            opacity: rightMaskOpacity,
-          }}
-        />
-        <animated.View
-          className={`${classPrefix}-tab-list`}
-          ref={tabListContainerRef}
-          scrollLeft={scrollLeft}
-          onScroll={updateMask}
-        >
-          <animated.View
-            ref={activeLineRef}
-            className={`${classPrefix}-tab-line`}
-            style={{
-              width:
-                props.activeLineMode === 'fixed'
-                  ? 'var(--fixed-active-line-width, 60px)'
-                  : width,
-              x,
-            }}
-          />
-          {panes.map(pane =>
-            withNativeProps(
-              pane.props,
+        {panes.map(pane =>
+          withNativeProps(
+            pane.props,
+            <View
+              key={pane.key}
+              className={classNames(`${classPrefix}-tab-wrapper`, {
+                [`${classPrefix}-tab-wrapper-stretch`]: props.stretch,
+              })}
+            >
               <View
-                key={pane.key}
-                className={classNames(`${classPrefix}-tab-wrapper`, {
-                  [`${classPrefix}-tab-wrapper-stretch`]: props.stretch,
+                onClick={() => {
+                  const {key} = pane
+                  if (pane.props.disabled) return
+                  if (key === undefined || key === null) {
+                    return
+                  }
+                  setActiveKey(key.toString())
+                }}
+                className={classNames(`${classPrefix}-tab`, {
+                  [`${classPrefix}-tab-active`]: pane.key === activeKey,
+                  [`${classPrefix}-tab-disabled`]: pane.props.disabled,
                 })}
               >
-                <View
-                  onClick={() => {
-                    const {key} = pane
-                    if (pane.props.disabled) return
-                    if (key === undefined || key === null) {
-                      return
-                    }
-                    setActiveKey(key.toString())
-                  }}
-                  className={classNames(`${classPrefix}-tab`, {
-                    [`${classPrefix}-tab-active`]: pane.key === activeKey,
-                    [`${classPrefix}-tab-disabled`]: pane.props.disabled,
-                  })}
-                >
-                  {pane.props.title}
-                </View>
+                {pane.props.title}
               </View>
-            )
-          )}
-        </animated.View>
+            </View>
+          )
+        )}
       </View>
       {panes.map(pane => {
         if (pane.props.children === undefined) {
