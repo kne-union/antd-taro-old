@@ -42,7 +42,9 @@
   "peerDependencies": {
     "@tarojs/components": "*",
     "@tarojs/taro": "*",
-    "react": "*"
+    "@tarojsx/library": "*",
+    "react": "*",
+    "react-spring": "*"
   },
   "dependencies": {
     "@kne/use-control-value": "^0.1.2",
@@ -52,7 +54,8 @@
     "classnames": "^2.3.1",
     "dayjs": "^1.11.7",
     "lodash": "^4.17.21",
-    "react-is": "^18.2.0"
+    "react-is": "^18.2.0",
+    "react-spring": "9.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
@@ -62,10 +65,12 @@
     "@tarojs/components": "^3.6.0",
     "@tarojs/mini-runner": "^3.6.0",
     "@tarojs/plugin-framework-react": "^3.6.0",
+    "@tarojs/plugin-platform-weapp": "^3.6.0",
     "@tarojs/react": "^3.6.0",
     "@tarojs/runtime": "^3.6.0",
     "@tarojs/taro": "^3.6.0",
     "@tarojs/webpack-runner": "^3.6.0",
+    "@tarojsx/polyfill": "^0.16.0",
     "@types/react": "^17.0.2",
     "@types/webpack-env": "^1.13.6",
     "babel-preset-taro": "^3.6.0",

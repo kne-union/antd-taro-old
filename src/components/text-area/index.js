@@ -8,7 +8,7 @@ import {View, Textarea} from '@tarojs/components'
 const classPrefix = 'adm-text-area'
 
 const defaultProps = {
-  showCount: true, autoSize: false, defaultValue: '', maxLength: 100,
+  showCount: true, autoSize: true, defaultValue: '', maxLength: 100,
 }
 
 const TextArea = forwardRef((p, ref) => {
@@ -63,7 +63,7 @@ const TextArea = forwardRef((p, ref) => {
       maxlength={props.maxLength}
       focus={props.focus}
       cursor={props.cursor}
-      autoHeight={props.autoSize}
+      autoHeight={true}
       fixed={props.fixed}
       cursorSpacing={props.cursorSpacing}
       selectionStart={props.selectionStart}
