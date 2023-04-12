@@ -1,6 +1,6 @@
 {
   "name": "@kne/antd-taro",
-  "version": "0.1.1-alpha.12",
+  "version": "0.1.1-alpha.13",
   "description": "antd-mobile在taro上的实现",
   "templateInfo": {
     "name": "default",
@@ -43,7 +43,8 @@
     "@tarojs/components": "*",
     "@tarojs/taro": "*",
     "@tarojsx/library": "*",
-    "react": "*"
+    "react": "*",
+    "react-spring": "*"
   },
   "dependencies": {
     "@kne/use-control-value": "^0.1.2",
@@ -53,7 +54,8 @@
     "classnames": "^2.3.1",
     "dayjs": "^1.11.7",
     "lodash": "^4.17.21",
-    "react-is": "^18.2.0"
+    "react-is": "^18.2.0",
+    "react-spring": "9.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
@@ -63,6 +65,7 @@
     "@tarojs/components": "^3.6.0",
     "@tarojs/mini-runner": "^3.6.0",
     "@tarojs/plugin-framework-react": "^3.6.0",
+    "@tarojs/plugin-platform-weapp": "^3.6.0",
     "@tarojs/react": "^3.6.0",
     "@tarojs/runtime": "^3.6.0",
     "@tarojs/taro": "^3.6.0",
